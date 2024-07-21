@@ -9,12 +9,9 @@ const UsersComponent = () => {
         apiService.getAllUsers().then(value => setUsers(value.data))
     }, []);
 
-    const getPosts = (id:number) =>{
-        apiService.getPostsOfUserById(id).then(value => console.log(value.data))
-    }
     return (
         <div>
-            {users.map(user => <UserComponent key={user.id} user={user} getPosts={getPosts}/>)}
+            {users.map(user => <UserComponent key={user.id} user={user}/>)}
         </div>
     );
 };

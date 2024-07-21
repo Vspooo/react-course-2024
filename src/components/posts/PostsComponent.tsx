@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {IPostModel} from "../../models/postModel";
+import {apiService} from "../../services/api.sercice";
+import PostComponent from "./PostComponent";
+
 
 const PostsComponent = () => {
+    const [posts, setPosts] = useState<IPostModel[]>([])
+    useEffect(() => {
+        apiService.getAllPost().then(value => setPosts(value.data))
+    }, []);
     return (
         <div>
-            posts comp
+            {posts.map(post => <PostComponent post={post} key={post.id}/>)}
         </div>
     );
 };

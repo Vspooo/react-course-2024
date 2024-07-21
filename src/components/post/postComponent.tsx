@@ -4,24 +4,24 @@ import {useNavigate} from "react-router-dom";
 
 
 interface IProps {
-    post : IPostModel
+    post: IPostModel
 }
-const PostComponent:FC<IProps> = ({post}) => {
+
+const PostComponent: FC<IProps> = ({post}) => {
     const navigate = useNavigate()
     const handleShowComments = () => {
         navigate(`/comments/${post.id}`)
     }
     return (
         <div>
-            <h1> post : {post.id}. User id : {post.userId}</h1>
-            <p>{post.title}</p>
+            <h1>post.{post.id} userId:{post.userId}</h1>
+            <h3>{post.title}</h3>
             <p>{post.body}</p>
             <button onClick={() => {
                 handleShowComments()
             }}> show comments
             </button>
         </div>
-
     );
 };
 

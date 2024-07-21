@@ -3,6 +3,8 @@ import MainLayOut from "../layOuts/MainLayOut";
 import UsersPage from "../pages/UsersPage";
 import PostsPage from "../pages/PostsPage";
 import CommentsPage from "../pages/CommentsPage";
+import PostPage from "../pages/PostPage";
+import CommentPage from "../pages/CommentPage";
 
 let router = createBrowserRouter([
     {
@@ -10,15 +12,12 @@ let router = createBrowserRouter([
         element: <MainLayOut/>,
         children:[
             {index:true, element: <UsersPage/>},
-            {path:"users", element: <UsersPage/>, children:[
-                    {path:"postsOfUser", element: <PostsPage/>, children:[
-                            {path:"commentsOfPost", element: <CommentsPage/>}
-                        ]}
-                ]},
+            {path:"users", element: <UsersPage/>},
             {path:"posts", element: <PostsPage/>},
-            {path:"comments", element: <CommentsPage/>}
-        ]
-    }
+            {path : "posts/:id", element: <PostPage/>},
+            {path:"comments", element: <CommentsPage/>},
+            {path:"comments/:id", element: <CommentPage/>}
+        ]}
 ])
 
 export {
