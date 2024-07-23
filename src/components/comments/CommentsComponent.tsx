@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ICommentModel} from "../../models/commentModel";
-import {apiService} from "../../services/api.sercice";
+import {apiService} from "../../services/api.service";
 import CommentComponent from "./CommentComponent";
 
 

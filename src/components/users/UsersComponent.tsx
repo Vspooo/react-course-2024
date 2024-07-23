@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {IUserModel} from "../../models/userModel";
-import {apiService} from "../../services/api.sercice";
+import {apiService} from "../../services/api.service";
 import UserComponent from "./UserComponent";
 
 const UsersComponent = () => {

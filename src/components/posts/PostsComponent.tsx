@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {IPostModel} from "../../models/postModel";
-import {apiService} from "../../services/api.sercice";
+import {apiService} from "../../services/api.service";
 import PostComponent from "./PostComponent";
 
 

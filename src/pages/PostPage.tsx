@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PostComponent from "../components/post/postComponent";
 import {Location, useLocation, useParams} from "react-router-dom";
 import {IPostModel} from "../models/postModel";
-import {apiService} from "../services/api.sercice";
+import {apiService} from "../services/api.service";
 
 const UserPostsPage = () => {
     let {id} = useParams<{ id: string }>()

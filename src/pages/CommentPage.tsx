@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSearchParams} from "react-router-dom";
 import {ICommentModel} from "../models/commentModel";
-import {apiService} from "../services/api.sercice";
+import {apiService} from "../services/api.service";
 import CommentComponent from "../components/comment/commentComponent";
 
 const PostCommentsPage = () => {

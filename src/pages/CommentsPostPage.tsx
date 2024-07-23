@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useSearchParams} from "react-router-dom";
-import {apiService} from "../services/api.sercice";
+import {apiService} from "../services/api.service";
 import {IPostModel} from "../models/postModel";
 import SinglePostComponent from "../components/singlePostComponent/SinglePostComponent";
 
