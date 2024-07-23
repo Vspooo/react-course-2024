@@ -4,7 +4,7 @@ import {Location, useLocation, useParams} from "react-router-dom";
 import {IPostModel} from "../models/postModel";
 import {apiService} from "../services/api.sercice";
 
-const PostPage = () => {
+const UserPostsPage = () => {
     let {id} = useParams<{ id: string }>()
     let location: Location<IPostModel> = useLocation()
     let state = location.state
@@ -23,4 +23,4 @@ const PostPage = () => {
     );
 };
 
-export default PostPage;
+export default UserPostsPage;

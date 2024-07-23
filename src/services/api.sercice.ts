@@ -11,7 +11,8 @@ const apiService = {
     getAllPost : (): ResT<IPostModel[]> => axiosInstance.get(urls.posts),
     getAllComments : () :ResT<ICommentModel[]> => axiosInstance.get(urls.comments),
     getPostsOfUserById : (id:number) : ResT<IPostModel[]> => axiosInstance.get(urls.postsOfUserById + id),
-    getCommentsOfPostById : (id:number) :ResT<ICommentModel[]> => axiosInstance.get(urls.commentsOfPostById + id)
+    getCommentsOfPostById : (id:number) :ResT<ICommentModel[]> => axiosInstance.get(urls.commentsOfPostById + id),
+    getPostOfComments : (id:number) : ResT<IPostModel[]> => axiosInstance.get(urls.postOfCommentById+id)
 }
 
 export {

@@ -10,7 +10,7 @@ interface IProps {
 const PostComponent: FC<IProps> = ({post}) => {
     const navigate = useNavigate()
     const handleShowComments = () => {
-        navigate(`/comments/${post.id}`)
+        navigate(`/post-comments?postId=${post.id}`)
     }
     return (
         <div>
