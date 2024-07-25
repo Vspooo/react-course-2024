@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useSearchParams} from "react-router-dom";
 import {ICommentModel} from "../models/commentModel";
-import {apiService} from "../services/api.service";
 import CommentComponent from "../components/comment/commentComponent";
+import {commentApiService} from "../services/comment.api.service";
 
 const PostCommentsPage = () => {
     const [searchParams] = useSearchParams()
@@ -10,7 +10,7 @@ const PostCommentsPage = () => {
     const [comments, setComments] = useState<ICommentModel[]>([])
     useEffect(() => {
         if (postId != null) {
-            apiService.getCommentsOfPostById(parseInt(postId)).then(value => setComments(value.data))
+            commentApiService.getCommentsOfPostById(parseInt(postId)).then(value => setComments(value.data))
         } else {
             console.log("wrong id for comments")
         }

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {IUserModel} from "../../models/userModel";
-import {apiService} from "../../services/api.service";
 import UserComponent from "./UserComponent";
+import {userApiService} from "../../services/user.api.service";
 
 const UsersComponent = () => {
     const [users, setUsers] = useState<IUserModel[]>([])
     useEffect(() => {
-        apiService.getAllUsers().then(value => setUsers(value.data))
+        userApiService.getAllUsers().then(value => setUsers(value.data))
     }, []);
 
     return (

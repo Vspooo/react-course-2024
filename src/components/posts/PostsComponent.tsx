@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {IPostModel} from "../../models/postModel";
-import {apiService} from "../../services/api.service";
 import PostComponent from "./PostComponent";
+import {postApiService} from "../../services/post.api.service";
 
 
 const PostsComponent = () => {
     const [posts, setPosts] = useState<IPostModel[]>([])
     useEffect(() => {
-        apiService.getAllPost().then(value => setPosts(value.data))
+        postApiService.getAllPost().then(value => setPosts(value.data))
     }, []);
     return (
         <div>

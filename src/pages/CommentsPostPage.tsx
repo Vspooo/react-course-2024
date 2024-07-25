@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useSearchParams} from "react-router-dom";
-import {apiService} from "../services/api.service";
 import {IPostModel} from "../models/postModel";
 import SinglePostComponent from "../components/singlePostComponent/SinglePostComponent";
+import {postApiService} from "../services/post.api.service";
 
 const CommentsPostPage = () => {
    const [searchParams]  =useSearchParams()
@@ -10,7 +10,7 @@ const CommentsPostPage = () => {
     const [post, setPost] = useState<IPostModel[]>([])
     useEffect(() => {
         if (postId != null){
-            apiService.getPostOfComments(parseInt(postId)).then(value => setPost(value.data))
+            postApiService.getPostOfComments(parseInt(postId)).then(value => setPost(value.data))
         }
     }, [postId]);
     return (
