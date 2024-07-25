@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Form = () => {
+const UserComponent = () => {
     return (
         <div>
-
-
+            user info
         </div>
     );
 };
 
-export default Form;
+export default UserComponent;
