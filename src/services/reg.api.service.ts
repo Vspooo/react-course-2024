@@ -7,7 +7,7 @@ import {urls} from "../urls/urls";
 const regApiService = {
   register : async (data:IUserModel) => {
      const response =  await axiosInstance.post<IUserResponseModel>(urls.register,data)
-      return console.log(response.data)
+     return response.data
   }
 }
 export {

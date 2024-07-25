@@ -2,6 +2,7 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {ITokenObtainPairModel} from "../../models/TokenObtainPairModel";
 import {authApiService} from "../../services/auth.api.service";
+import {useNavigate} from "react-router-dom";
 
 const AuthComponent = () => {
   let {handleSubmit,register} =   useForm<ITokenObtainPairModel>({
@@ -11,8 +12,10 @@ const AuthComponent = () => {
       }
   })
 
+    const navigate= useNavigate()
   const authenticate = (data:ITokenObtainPairModel)=>{
       authApiService.auth(data)
+      navigate("/me")
   }
     return (
         <div>
