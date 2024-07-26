@@ -24,9 +24,9 @@ const UserComponent = () => {
         <div>
             <div><p>user id: {user?.id}</p>
                 <p>username -{user?.username}</p>
-                <p>active status: {user?.is_active}</p>
-                <p>is staff? : {user?.is_staff}</p>
-                <p>is super user? :{user?.is_superuser}</p>
+                <p>active status: {user?.is_active+""}</p>
+                <p>is staff? : {user?.is_staff+""}</p>
+                <p>is super user? :{user?.is_superuser+""}</p>
                 <p>last login : {user?.last_login}</p>
                 <p>created : {user?.created}</p>
                 <p>last update :{user?.updated}</p>
