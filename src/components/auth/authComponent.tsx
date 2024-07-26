@@ -13,8 +13,8 @@ const AuthComponent = () => {
   })
 
     const navigate= useNavigate()
-  const authenticate = (data:ITokenObtainPairModel)=>{
-      authApiService.auth(data)
+  const authenticate = async (data:ITokenObtainPairModel)=>{
+      await authApiService.auth(data)
       navigate("/me")
   }
     return (
