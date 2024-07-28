@@ -4,7 +4,6 @@ import {carApiService} from "../../services/car.api.service";
 import CarComponent from "./carComponent";
 
 
-
 const CarsComponent = () => {
     const [cars, setCars] = useState<ICarWithAuthModel[]>([])
     useEffect(() => {

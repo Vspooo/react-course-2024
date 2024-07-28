@@ -1,9 +1,5 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {IUserResponseModel} from "../../models/userResponseModel";
-import {ICarPaginatedModel} from "../../models/CarPaginatedModel";
-import {userApiService} from "../../services/user.api.service";
-import {carApiService} from "../../services/car.api.service";
-import {ICarWithAuthModel} from "../../models/carWithAuthModel";
 import CarsComponent from "../cars/carsComponent";
 
 interface IProps {
@@ -11,14 +7,6 @@ interface IProps {
 }
 
 const UserComponent:FC<IProps> = ({user}) => {
-    // const [user, setUser] = useState<IUserResponseModel | null>(null)
-    // const [cars, setCars] = useState<ICarWithAuthModel[]>([])
-    // const [hasError, setHasError] = useState<boolean>(false)
-    // useEffect(() => {
-    //         userApiService.getUserInfo().then(value => setUser(value))
-    //         carApiService.getAllCars().then(value => setCars(value.items))
-    //
-    // }, []);
     return (
         <div>
             <div><p>user id: {user?.id}</p>
