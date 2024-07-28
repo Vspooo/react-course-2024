@@ -11,6 +11,7 @@ auth : async (data:ITokenObtainPairModel) : Promise<void> =>{
     console.log("old tokens: " + response.data)
 },
 refresh : async():Promise<void> => {
+    console.log("new tokens")
    const tokenRefresh = retriveLocalStorageData<ITokenRefresh>("tokenPair").refresh
    const response = await axiosInstance.post(urls.refresh,{refresh:tokenRefresh})
     localStorage.setItem("tokenPair",JSON.stringify(response.data))

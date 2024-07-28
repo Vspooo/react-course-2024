@@ -11,7 +11,7 @@ import {useNavigate} from "react-router-dom";
 
 const UserPage = () => {
 
-   const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [user, setUser] = useState<IUserResponseModel>({
         id: 0,
@@ -24,7 +24,6 @@ const UserPage = () => {
         updated: "dont exist"
     })
     const [cars, setCars] = useState<ICarWithAuthModel[]>([])
-    const [hasError, setHasError] = useState<boolean>(false)
     useEffect(() => {
         const getUserInfo = async () => {
             try {
@@ -35,11 +34,12 @@ const UserPage = () => {
                 if (axiosError?.response?.status === 401) {
                     try {
                         await authApiService.refresh()
-                    }catch (e){
+                        await userApiService.getUserInfo().then(value => setUser(value))
+                        await carApiService.getAllCars().then(value => setCars(value.items))
+                    } catch (e) {
                         navigate("/")
                     }
-                    await userApiService.getUserInfo().then(value => setUser(value))
-                    await carApiService.getAllCars().then(value => setCars(value.items))
+
                 }
 
 
@@ -50,7 +50,7 @@ const UserPage = () => {
     }, []);
     return (
         <div>
-            <UserComponent user={user}/>
+            <UserComponent user={user} car={cars}/>
         </div>
     );
 };
