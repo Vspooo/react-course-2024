@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Form = () => {
+const ErrorComponent = () => {
     return (
         <div>
-
-
+            ERrOR!!
         </div>
     );
 };
 
-export default Form;
+export default ErrorComponent;
