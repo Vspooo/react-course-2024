@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react';
+import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../redux/store";
 import {commentAction} from "../redux/slices/commentSlice";
 import CommentsComponent from "../components/comments/CommentsComponent";
 
-const CommentsPage = () => {
+const CommentsOfPostPage = () => {
+    const {id} = useParams()
     const dispatch = useAppDispatch()
-  const {comments} = useAppSelector(state => state.commentStore)
+   const {comments} = useAppSelector(state => state.commentStore)
     useEffect(() => {
-        dispatch(commentAction.loadComments())
+        if (id) dispatch(commentAction.loadCommentsOfUser(+id))
     }, []);
     return (
         <div>
@@ -16,4 +18,4 @@ const CommentsPage = () => {
     );
 };
 
-export default CommentsPage;
+export default CommentsOfPostPage;

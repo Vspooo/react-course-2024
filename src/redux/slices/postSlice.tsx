@@ -1,6 +1,6 @@
 import {createSlice, isRejected} from "@reduxjs/toolkit";
 import {IPostModel} from "../../models/postModel";
-import {loadPost} from "../reducers/post.extra.reducer";
+import {loadPostsOfUser} from "../reducers/postsOfUser.extra.reducer";
 import {loadPosts} from "../reducers/posts.extra.reducers";
 
 type PostSliceType = {
@@ -21,12 +21,6 @@ export const postSlice = createSlice({
     name: "postSlice",
     initialState: initialState,
     reducers: {
-        fillPost: (state, action) => {
-            state.post = action.payload
-        },
-        fillUsers: (state, action) => {
-            state.posts = action.payload
-        }
     },
     extraReducers: builder =>
         builder
@@ -34,17 +28,17 @@ export const postSlice = createSlice({
                 state.posts = action.payload;
                 state.isLoaded = true
             })
-            .addCase(loadPost.fulfilled, (state, action) => {
-                state.post = action.payload;
+            .addCase(loadPostsOfUser.fulfilled, (state, action) => {
+                state.posts = action.payload;
                 state.isLoaded = true
             })
-            .addMatcher(isRejected(loadPost, loadPosts), (state, action) => {
+            .addMatcher(isRejected(loadPostsOfUser, loadPosts), (state, action) => {
                 state.error = action.payload as string
             })
 })
 
 export const postAction = {
     ...postSlice.actions,
-    loadPost,
+    loadPostsOfUser,
     loadPosts
 }
